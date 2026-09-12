@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Collaborative Canvas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div>
+            <h1>Collaborative Canvas</h1>
+            <p>Real-time multiplayer whiteboard</p>
+        </div>
+
+        <div class="connection-status">
+            <span class="status-dot"></span>
+            <span id="connectionText">Connecting...</span>
+        </div>
+    </header>
+
+
+    <main class="app-container">
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+
+            <div class="tool-group">
+                <button id="brushBtn" class="tool-btn active">
+                    🖌 Brush
+                </button>
+
+                <button id="eraserBtn" class="tool-btn">
+                    🧹 Eraser
+                </button>
+            </div>
+
+
+            <div class="tool-group">
+
+                <label for="colorPicker">
+                    Color
+                </label>
+
+                <input
+                    type="color"
+                    id="colorPicker"
+                    value="#000000"
+                >
+
+            </div>
+
+
+            <div class="tool-group">
+
+                <label for="brushSize">
+                    Width
+                </label>
+
+                <input
+                    type="range"
+                    id="brushSize"
+                    min="1"
+                    max="30"
+                    value="5"
+                >
+
+                <span id="brushSizeValue">5px</span>
+
+            </div>
+
+
+            <div class="tool-group history-controls">
+
+                <button id="undoBtn" class="tool-btn">
+                    ↶ Undo
+                </button>
+
+                <button id="redoBtn" class="tool-btn">
+                    ↷ Redo
+                </button>
+
+                <button id="clearBtn" class="tool-btn danger">
+                    🗑 Clear
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main workspace -->
+        <section class="workspace">
+
+            <div class="canvas-container">
+
+                <canvas id="drawingCanvas"></canvas>
+
+                <!-- Other users' cursors will appear here -->
+                <div id="cursorLayer"></div>
+
+            </div>
+
+
+            <!-- Online users -->
+            <aside class="users-panel">
+
+                <h2>Online Users</h2>
+
+                <div id="onlineUsers">
+                    <!-- Users will be added dynamically -->
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- Room information -->
+        <section class="room-bar">
+
+            <div>
+                <strong>Room:</strong>
+                <span id="roomId">default</span>
+            </div>
+
+            <button id="copyRoomBtn">
+                🔗 Copy Room Link
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/main.js"></script>
+
+</body>
+</html>
