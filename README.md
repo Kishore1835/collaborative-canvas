@@ -5,7 +5,13 @@ A real-time collaborative drawing application where multiple users can draw simu
 The application uses Node.js, Express, Socket.IO, and Vanilla TypeScript to provide real-time collaboration without using frontend frameworks such as React or Vue.
 
 ---
+## Live Demo
 
+https://collaborative-canvas-eq5a.onrender.com
+
+## Health Check
+
+https://collaborative-canvas-eq5a.onrender.com/health
 ## Features
 
 ### Drawing Tools
